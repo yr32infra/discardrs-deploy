@@ -1,0 +1,23 @@
+version: '3.9'
+services:
+  discarddrs:
+    image: ghcr.io/yanorei32/discardd-rs:0.1.0
+    hostname: discarddrs
+    container_name: discarddrs__discarddrs
+
+    restart: unless-stopped
+
+    ports:
+      - "9:9"
+
+    networks:
+      - default
+
+    deploy:
+      resources:
+        limits:
+          memory: 128m
+
+networks:
+  default:
+    name: discarddrs__default
